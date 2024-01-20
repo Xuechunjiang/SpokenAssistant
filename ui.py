@@ -15,7 +15,7 @@ def send_message(event=None):
     if send_lock.locked():
         return
 
-    #lock for 20 seconds
+    # lock for 20 seconds
     send_lock.acquire(timeout=20)
 
     user_message = message_field.get()
@@ -33,7 +33,7 @@ def send_message(event=None):
 
         message_field.delete(0, tk.END)
 
-    # unlock 
+    # unlock
     send_lock.release()
 
 
